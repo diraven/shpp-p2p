@@ -23,9 +23,15 @@ public class MyKarel extends KarelTheRobot {
         }
     }
 
-    protected void move_until_beeper() throws Exception {
-        do {
+    protected void move_until_obstacle_or_beeper() throws Exception {
+        while (true) {
+            if (!frontIsClear()) {
+                break;
+            }
             move();
-        } while (!beepersPresent());
+            if (beepersPresent()) {
+                break;
+            }
+        }
     }
 }

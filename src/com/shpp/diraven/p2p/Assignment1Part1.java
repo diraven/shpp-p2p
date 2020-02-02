@@ -12,7 +12,7 @@ public class Assignment1Part1 extends MyKarel {
         turnRight();
         move();
         turnLeft();
-        move_until_beeper();
+        move_until_obstacle_or_beeper();
     }
 
     private void pick_newspaper() throws Exception {
