@@ -20,7 +20,7 @@ public class Assignment1Part1 extends MyKarel {
     }
 
     private void goToStart() throws Exception {
-        turnBack();
+        turnAround();
         moveUntilObstacle();
         turnRight();
         moveUntilObstacle();

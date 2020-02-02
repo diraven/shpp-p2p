@@ -23,9 +23,9 @@ public class Assignment1Part2 extends MyKarel {
     }
 
     private void restartLine() throws Exception {
-        turnBack();
+        turnAround();
         moveUntilObstacle();
-        turnBack();
+        turnAround();
     }
 
     private void fillLine() throws Exception {

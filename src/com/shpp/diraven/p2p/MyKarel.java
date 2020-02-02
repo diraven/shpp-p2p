@@ -13,7 +13,7 @@ public class MyKarel extends KarelTheRobot {
         turnLeftTimes(3);
     }
 
-    protected void turnBack() throws Exception {
+    protected void turnAround() throws Exception {
         turnLeftTimes(2);
     }
 
