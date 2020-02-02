@@ -17,9 +17,9 @@ public class Assignment1Part2 extends MyKarel {
 
     private boolean isLineHasBeepers() throws Exception {
         moveUntilObstacleOrBeeper();
-        boolean beeper_found = beepersPresent();
+        boolean beeperFound = beepersPresent();
         restartLine();
-        return beeper_found;
+        return beeperFound;
     }
 
     private void restartLine() throws Exception {
