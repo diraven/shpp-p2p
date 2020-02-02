@@ -1,2 +1,2 @@
 archive:
-	git archive -o opavlenko.zip HEAD
+	git archive -o .tmp/opavlenko.zip HEAD
