@@ -17,13 +17,13 @@ public class MyKarel extends KarelTheRobot {
         turnLeftTimes(2);
     }
 
-    protected void move_until_obstacle() throws Exception {
+    protected void moveUntilObstacle() throws Exception {
         while (frontIsClear()) {
             move();
         }
     }
 
-    protected void move_until_obstacle_or_beeper() throws Exception {
+    protected void moveUntilObstacleOrBeeper() throws Exception {
         while (true) {
             if (!frontIsClear()) {
                 break;

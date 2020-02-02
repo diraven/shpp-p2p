@@ -3,27 +3,27 @@ package com.shpp.diraven.p2p;
 public class Assignment1Part1 extends MyKarel {
 
     public void run() throws Exception {
-        go_to_newspaper();
-        pick_newspaper();
-        go_to_start();
+        goToNewspaper();
+        pickNewspaper();
+        goToStart();
     }
 
-    private void go_to_newspaper() throws Exception {
+    private void goToNewspaper() throws Exception {
         turnRight();
         move();
         turnLeft();
-        move_until_obstacle_or_beeper();
+        moveUntilObstacleOrBeeper();
     }
 
-    private void pick_newspaper() throws Exception {
+    private void pickNewspaper() throws Exception {
         pickBeeper();
     }
 
-    private void go_to_start() throws Exception {
+    private void goToStart() throws Exception {
         turnBack();
-        move_until_obstacle();
+        moveUntilObstacle();
         turnRight();
-        move_until_obstacle();
+        moveUntilObstacle();
         turnRight();
     }
 }
