@@ -2,8 +2,8 @@ package com.shpp.diraven.p2p;
 
 public class Assignment1Part4 extends MyKarel {
 
-    private boolean is_white = false;
-    private boolean is_rtl = true;
+    private boolean isWhite = false;
+    private boolean isRtl = true;
 
     public void run() throws Exception {
         processLine();
@@ -14,7 +14,7 @@ public class Assignment1Part4 extends MyKarel {
 
     private void setColor() throws Exception {
         gatherAllBeepers();
-        if (!is_white) {
+        if (!isWhite) {
             putBeeper();
         }
     }
@@ -22,14 +22,14 @@ public class Assignment1Part4 extends MyKarel {
     private void processLine() throws Exception {
         while (!frontIsBlocked()) {
             setColor();
-            is_white = !is_white;
+            isWhite = !isWhite;
             move();
         }
         setColor();
     }
 
     private boolean moveToNextLine() throws Exception {
-        if (is_rtl) {
+        if (isRtl) {
             turnLeft();
         } else {
             turnRight();
@@ -38,13 +38,13 @@ public class Assignment1Part4 extends MyKarel {
             return false;
         }
         move();
-        if (is_rtl) {
+        if (isRtl) {
             turnLeft();
         } else {
             turnRight();
         }
-        is_rtl = !is_rtl;
-        is_white = !is_white;
+        isRtl = !isRtl;
+        isWhite = !isWhite;
         return true;
     }
 
