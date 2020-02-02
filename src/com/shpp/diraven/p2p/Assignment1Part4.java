@@ -2,7 +2,13 @@ package com.shpp.diraven.p2p;
 
 public class Assignment1Part4 extends MyKarel {
 
+    /*
+    Specifies if current cell should be white (true) or black (false).
+     */
     private boolean isWhite = false;
+    /*
+    Specifies if current movement direction is left-to-right (true) or right-to-left (false)
+     */
     private boolean isRtl = true;
 
     public void run() throws Exception {
@@ -12,6 +18,9 @@ public class Assignment1Part4 extends MyKarel {
         }
     }
 
+    /*
+    Sets either black (1 beeper) or white (no beeper) color to the cell Karel is in.
+     */
     private void setColor() throws Exception {
         gatherAllBeepers();
         if (!isWhite) {
@@ -19,6 +28,9 @@ public class Assignment1Part4 extends MyKarel {
         }
     }
 
+    /*
+    Traverse the line and put beepers where necessary.
+     */
     private void processLine() throws Exception {
         while (!frontIsBlocked()) {
             setColor();
@@ -28,6 +40,11 @@ public class Assignment1Part4 extends MyKarel {
         setColor();
     }
 
+    /*
+    Traverse to the next line available.
+
+    @return true on success and false otherwise.
+     */
     private boolean moveToNextLine() throws Exception {
         if (isRtl) {
             turnLeft();
