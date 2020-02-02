@@ -1,4 +1,4 @@
-package com.shpp.diraven.p2p;
+package com.shpp.p2p.cs.pavlenko.assignment1;
 
 public class Assignment1Part1 extends MyKarel {
 
