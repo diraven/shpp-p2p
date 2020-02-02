@@ -34,4 +34,10 @@ public class MyKarel extends KarelTheRobot {
             }
         }
     }
+
+    protected void gatherAllBeepers() throws Exception {
+        while (beepersPresent()) {
+            pickBeeper();
+        }
+    }
 }
