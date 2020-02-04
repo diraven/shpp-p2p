@@ -4,21 +4,15 @@ import com.shpp.karel.KarelTheRobot;
 
 public class MyKarel extends KarelTheRobot {
 
-    /*
-    Allows to turn left multiple times with just one call.
-     */
-    protected void turnLeftTimes(int times) throws Exception {
-        for (int i = 0; i < times; i++) {
-            turnLeft();
-        }
-    }
-
     protected void turnRight() throws Exception {
-        turnLeftTimes(3);
+        turnLeft();
+        turnLeft();
+        turnLeft();
     }
 
     protected void turnAround() throws Exception {
-        turnLeftTimes(2);
+        turnLeft();
+        turnLeft();
     }
 
     protected void moveUntilObstacle() throws Exception {
@@ -49,5 +43,13 @@ public class MyKarel extends KarelTheRobot {
         while (beepersPresent()) {
             pickBeeper();
         }
+    }
+
+    /*
+    Collects all beepers while also moving.
+     */
+    protected void cleanMove() throws Exception {
+        move();
+        gatherAllBeepers();
     }
 }

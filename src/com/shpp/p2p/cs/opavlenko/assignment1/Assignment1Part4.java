@@ -2,67 +2,61 @@ package com.shpp.p2p.cs.opavlenko.assignment1;
 
 public class Assignment1Part4 extends MyKarel {
 
-    /*
-    Specifies if current cell should be white (true) or black (false).
-     */
-    private boolean isWhite = false;
-    /*
-    Specifies if current movement direction is left-to-right (true) or right-to-left (false)
-     */
-    private boolean isRtl = true;
-
     public void run() throws Exception {
-        processLine();
-        while (moveToNextLine()) {
-            processLine();
-        }
-    }
+        // Assume starting position of the bot to be facing north to make it easier to check if next line is available.
+        turnLeft();
 
-    /*
-    Sets either black (1 beeper) or white (no beeper) color to the cell Karel is in.
-     */
-    private void setColor() throws Exception {
-        gatherAllBeepers();
-        if (!isWhite) {
-            putBeeper();
-        }
-    }
+        // Fill first line (it's always available, since bot is standing there).
+        fill();
 
-    /*
-    Traverse the line and put beepers where necessary.
-     */
-    private void processLine() throws Exception {
-        while (!frontIsBlocked()) {
-            setColor();
-            isWhite = !isWhite;
-            move();
-        }
-        setColor();
-    }
+        // Repeat as long as next line is available.
+        while (frontIsClear()) {
+            // Go to the next line.
+            next();
 
-    /*
-    Traverse to the next line available.
-
-    @return true on success and false otherwise.
-     */
-    private boolean moveToNextLine() throws Exception {
-        if (isRtl) {
-            turnLeft();
-        } else {
+            // Shift bot's position by one cell.
             turnRight();
-        }
-        if (frontIsBlocked()) {
-            return false;
-        }
-        move();
-        if (isRtl) {
+            cleanMove();
             turnLeft();
-        } else {
-            turnRight();
+
+            // Fill the rest of the line.
+            fill();
+
+            // If one more line available - go to it and fill it.
+            if (frontIsClear()) {
+                next();
+                fill();
+            }
         }
-        isRtl = !isRtl;
-        isWhite = !isWhite;
-        return true;
     }
 
+    /*
+    Fills one line starting from the position bot is on, when finished - also resets bot to the starting position.
+     */
+    private void fill() throws Exception {
+        // Put the first beeper.
+        turnRight();
+        putBeeper();
+
+        // Put one beeper every 2 cells cleaning everything extra up as it goes.
+        while (frontIsClear()) {
+            cleanMove();
+            if (frontIsClear()) {
+                cleanMove();
+                putBeeper();
+            }
+        }
+
+        // Return bot to the starting position on the line.
+        turnAround();
+        moveUntilObstacle();
+        turnRight();
+    }
+
+    /*
+    Moves bot to the next line.
+     */
+    private void next() throws Exception {
+        cleanMove();
+    }
 }
