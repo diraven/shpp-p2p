@@ -27,18 +27,18 @@ public class MyKarel extends KarelTheRobot {
         }
     }
 
+    protected void moveBack() throws Exception {
+        turnAround();
+        move();
+        turnAround();
+    }
+
     /*
     Keeps moving forward until there is an obstacle in front of Karel or beeper on the same cell as Karel.
      */
     protected void moveUntilObstacleOrBeeper() throws Exception {
-        while (true) {
-            if (!frontIsClear()) {
-                break;
-            }
+        while (frontIsClear() && !beepersPresent()) {
             move();
-            if (beepersPresent()) {
-                break;
-            }
         }
     }
 
