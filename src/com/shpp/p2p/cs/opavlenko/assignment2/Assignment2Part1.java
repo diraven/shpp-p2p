@@ -6,6 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/*
+Square equation.
+ */
 public class Assignment2Part1 extends TextProgram {
     public void run() {
         int a, b, c;

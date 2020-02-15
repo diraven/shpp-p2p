@@ -6,6 +6,9 @@ import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
 
+/*
+Illusionary contours.
+ */
 public class Assignment2Part2 extends WindowProgram {
     public void run() {
         int w = getWidth();
